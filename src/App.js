@@ -27,7 +27,7 @@ function App() {
         <Navbar handleSignOut={handleSignOut}/>
         {/* <Outlet setIsAuth={setIsAuth}/> */}
         {/* {!isAuth ? <Login isAuth={isAuth} setIsAuth={setIsAuth}/> : <Outlet/>} */}
-        <Outlet/>
+        <Outlet />
       </div>
     </authContext.Provider>
   );
