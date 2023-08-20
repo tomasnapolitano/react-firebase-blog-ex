@@ -1,13 +1,34 @@
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { authContext } from "../../App"
 import styles from './CreatePost.module.css'
+import { addDoc, collection } from 'firebase/firestore'
+import { db,auth } from "../../firebase-config"
+import { useNavigate } from "react-router-dom"
 
 const CreatePost = () => {
     const { isAuth } = useContext(authContext);
+    const [title, setTitle] = useState('');
+    const [body, setBody] = useState('');
+    const postsCollection = collection(db,'posts');
+    const navigate = useNavigate();
 
-    const handlePublish = () => {
-      console.log('giladita');
+    const handlePublish = async () => {
+      await addDoc(postsCollection,{
+        // title: title,
+        // body: body, <-- esta forma es equivalente a:
+        title,
+        body,
+        author:{
+          name: auth.currentUser.displayName,
+          id: auth.currentUser.uid,
+        }
+      })
+      navigate('/');
     }
+    // const handlePublish =  () => {
+    
+    //   console.log(auth);
+    // }
 
   return (
     <>{!isAuth ? <p>Log in to create a post!</p> : 
@@ -16,11 +37,11 @@ const CreatePost = () => {
       <h1>Create a new Post!</h1>
       <div className={styles.inputGroup}>
         <label>Title</label>
-        <input placeholder='Title...'/>
+        <input placeholder='Title...' onChange={(event) => {setTitle(event.target.value)}}/>
       </div>
       <div className={styles.inputGroup}>
         <label>Body</label>
-        <textarea placeholder='Post body...'/>
+        <textarea placeholder='Post body...' onChange={(event) => {setBody(event.target.value)}}/>
       </div>
       <button className={styles.postButton} onClick={handlePublish}>Publish</button>
     </div>
