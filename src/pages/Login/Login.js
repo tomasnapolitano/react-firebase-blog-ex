@@ -1,9 +1,9 @@
-import { auth, provider } from "../firebase-config";
+import { auth, provider } from "../../firebase-config";
 import { signInWithPopup } from "firebase/auth";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { authContext } from "../App";
-
+import { authContext } from "../../App";
+import styles from "./Login.module.css"
 
 const Login = () => {
 
@@ -18,11 +18,11 @@ const Login = () => {
         })
     }
   return (
-        <div>
+        <div className={styles.loginMainComponent}>
             {!isAuth ? 
             <div>
-                <p>Sign In with Google to Continue</p>
-                <button className="" onClick={handleSignIn}>Sign In</button>
+                {/* <p>Sign In with Google to Continue</p> */}
+                <button className={styles.googleLoginButton} onClick={handleSignIn}>Sign in with Google</button>
             </div>
             :
             <div>
