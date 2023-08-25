@@ -37,11 +37,11 @@ const CreatePost = () => {
       <h1>Create a new Post!</h1>
       <div className={styles.inputGroup}>
         <label>Title</label>
-        <input placeholder='Title...' onChange={(event) => {setTitle(event.target.value)}}/>
+        <input onChange={(event) => {setTitle(event.target.value)}}/>
       </div>
       <div className={styles.inputGroup}>
         <label>Body</label>
-        <textarea placeholder='Post body...' onChange={(event) => {setBody(event.target.value)}}/>
+        <textarea maxlength="2000" onChange={(event) => {setBody(event.target.value)}}/>
       </div>
       <button className={styles.postButton} onClick={handlePublish}>Publish</button>
     </div>

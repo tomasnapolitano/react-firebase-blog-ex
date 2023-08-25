@@ -1,7 +1,8 @@
 import { collection, getDocs } from "firebase/firestore"
-import { db } from '../firebase-config'
-import Post from "../Components/Post/Post";
+import { db } from '../../firebase-config'
+import Post from "../../Components/Post/Post";
 import { useEffect, useState } from "react";
+import styles from "./Home.module.css"
 
 // queryResult.forEach((post) => {
   //   console.log(post.data());
@@ -15,21 +16,18 @@ import { useEffect, useState } from "react";
         const queryResult = await getDocs(postCollection);
         // setPosts(queryResult);
         console.log(queryResult.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+        setPosts(queryResult.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
       }
       getPosts();
     }, [])
 
   return (
-    <>
-      {posts ? 
-        posts.forEach((post) => {
-          return(
-            <Post />
-          )
-        })
-        : <p>There are no posts yet.</p>
-      }
-    </>
+    <div className={styles.homeMainContainer}>
+    {posts.map((post) => {
+      return <Post key={post.id} title={post.title} body={post.body} authorName={post.author.name}/>
+    })}
+      
+    </div>
   )
 }
 
