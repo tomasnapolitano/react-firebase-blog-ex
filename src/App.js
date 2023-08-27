@@ -25,8 +25,6 @@ function App() {
     <authContext.Provider value={{isAuth, setIsAuth}}>
       <div className="App">
         <Navbar handleSignOut={handleSignOut}/>
-        {/* <Outlet setIsAuth={setIsAuth}/> */}
-        {/* {!isAuth ? <Login isAuth={isAuth} setIsAuth={setIsAuth}/> : <Outlet/>} */}
         <Outlet />
       </div>
     </authContext.Provider>
