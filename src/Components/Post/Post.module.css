@@ -7,17 +7,35 @@
     margin-top: 1%;    
     font-family: BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     
-    
-    .titleContainer{
+    .headerContainer{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
         font-size: 2rem;
-        padding: 3px;
+        .titleContainer{
+            padding: 3px;
+        }
+        .deleteButtonContainer{
+            cursor: pointer;
+            font-weight: 100;
+            opacity: 40%;
+        }
     }
     .bodyContainer{
         font-size: 1.3rem;
         padding: 10px;
+        font-size: 1.3rem;
+        padding: 10px;
+        word-wrap: break-word;
+        height: auto;
+        max-height: 400px;
+        width: 100%;
+        overflow: hidden;
+        overflow-y: auto;
     }
     .authorContainer{
         font-size: 1rem;
         font-style: italic;
+        opacity: 70%;
     }
 }

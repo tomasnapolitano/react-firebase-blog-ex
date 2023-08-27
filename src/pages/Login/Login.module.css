@@ -7,7 +7,7 @@
     background-color: rgba(0, 0, 0, 0.023);
 }
 
-/* GOOGLE BUTTOn */
+/* google login button */
 .googleLoginButton {
     cursor: pointer;
     transition: background-color 0.3s, box-shadow 0.3s;
