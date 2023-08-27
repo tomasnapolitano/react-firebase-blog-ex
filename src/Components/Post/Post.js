@@ -1,11 +1,19 @@
 import styles from './Post.module.css'
 
-const Post = ({title, body, authorName}) => {
+import { db } from "../../firebase-config"
+import { useState } from 'react';
+
+
+
+const Post = ({post, handleDelete}) => {
   return (
     <div className={styles.postMainContainer}>
-        <div className={styles.titleContainer}>{title}</div>
-        <div className={styles.bodyContainer}>{body}</div>
-        <div className={styles.authorContainer}>~{authorName}</div>
+      <div className={styles.headerContainer}>
+        <div className={styles.titleContainer}>{post.title}</div>
+        <div className={styles.deleteButtonContainer} onClick={() => handleDelete(post.id)}>x</div>
+      </div>
+      <div className={styles.bodyContainer}>{post.body}</div>
+      <div className={styles.authorContainer}>~{post.author.name}</div>
     </div>
   )
 }

@@ -1,4 +1,4 @@
-import { collection, getDocs } from "firebase/firestore"
+import { collection, getDocs, doc, deleteDoc } from "firebase/firestore"
 import { db } from '../../firebase-config'
 import Post from "../../Components/Post/Post";
 import { useEffect, useState } from "react";
@@ -21,11 +21,20 @@ import styles from "./Home.module.css"
       getPosts();
     }, [])
 
+    // TODO: the delete has to check for user. Currently, any user (logged or not) can delete any post.
+     const deletePost = async (id) => {
+       await deleteDoc(doc(db,"posts",id));
+       setPosts(posts.filter(post => post.id !== id));
+     } 
   return (
     <div className={styles.homeMainContainer}>
-    {posts.map((post) => {
-      return <Post key={post.id} title={post.title} body={post.body} authorName={post.author.name}/>
-    })}
+
+    {posts.length > 0 ? (
+      posts.map((post) => {
+        return <Post key={post.id} post={post} handleDelete={deletePost}/>
+      }))
+    : (<h1>no posts.</h1>)
+  }
       
     </div>
   )
