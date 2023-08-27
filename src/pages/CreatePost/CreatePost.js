@@ -41,7 +41,7 @@ const CreatePost = () => {
       </div>
       <div className={styles.inputGroup}>
         <label>Body</label>
-        <textarea maxlength="2000" onChange={(event) => {setBody(event.target.value)}}/>
+        <textarea maxLength="2000" onChange={(event) => {setBody(event.target.value)}}/>
       </div>
       <button className={styles.postButton} onClick={handlePublish}>Publish</button>
     </div>
