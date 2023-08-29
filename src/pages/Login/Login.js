@@ -21,7 +21,6 @@ const Login = () => {
         <div className={styles.loginMainComponent}>
             {!isAuth ? 
             <div>
-                {/* <p>Sign In with Google to Continue</p> */}
                 <button className={styles.googleLoginButton} onClick={handleSignIn}>Sign in with Google</button>
             </div>
             :
