@@ -11,12 +11,16 @@ import styles from "./Home.module.css"
   const Home = () => {
     
     const [posts, setPosts] = useState([]);
+    const [loading, setLoading] = useState(true);
+
     useEffect(() => {
       const getPosts = async() => {
+        setLoading(true);
         const queryResult = await getDocs(postCollection);
         // setPosts(queryResult);
         console.log(queryResult.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
         setPosts(queryResult.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+        setLoading(false);
       }
       getPosts();
     }, [])
@@ -26,18 +30,27 @@ import styles from "./Home.module.css"
        await deleteDoc(doc(db,"posts",id));
        setPosts(posts.filter(post => post.id !== id));
      } 
-  return (
-    <div className={styles.homeMainContainer}>
+     if(!loading){
 
-    {posts.length > 0 ? (
-      posts.map((post) => {
-        return <Post key={post.id} post={post} handleDelete={deletePost}/>
-      }))
-    : (<h1>no posts.</h1>)
-  }
-      
-    </div>
-  )
+       return (
+         <div className={styles.homeMainContainer}>
+
+            {posts.length > 0 ? (
+              posts.map((post) => {
+                return <Post key={post.id} post={post} handleDelete={deletePost}/>
+              }))
+              : (<h1>no posts.</h1>)
+              }
+                  
+                </div>
+              )
+      }
+      else{
+        return(
+          // <div className={styles.homeMainContainer}>Loading pija</div>
+          <img src="/loading_gif.gif"/>
+        )
+      }
 }
 
 export default Home
