@@ -22,7 +22,7 @@ const CreatePost = () => {
           name: auth.currentUser.displayName,
           id: auth.currentUser.uid,
         },
-        dateOfcreation: serverTimestamp()
+        dateOfCreation: serverTimestamp()
       })
       navigate('/');
     }

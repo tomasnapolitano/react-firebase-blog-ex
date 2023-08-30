@@ -1,4 +1,4 @@
-import { collection, getDocs, doc, deleteDoc } from "firebase/firestore"
+import { collection, getDocs, doc, deleteDoc, query, orderBy } from "firebase/firestore"
 import { db } from '../../firebase-config'
 import Post from "../../Components/Post/Post";
 import { useEffect, useState } from "react";
@@ -16,7 +16,8 @@ import styles from "./Home.module.css"
     useEffect(() => {
       const getPosts = async() => {
         setLoading(true);
-        const queryResult = await getDocs(postCollection);
+        const q = query(postCollection, orderBy('dateOfCreation'));
+        const queryResult = await getDocs(q);
         // setPosts(queryResult);
         console.log(queryResult.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
         setPosts(queryResult.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
