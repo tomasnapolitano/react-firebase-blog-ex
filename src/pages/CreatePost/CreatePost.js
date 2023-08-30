@@ -1,7 +1,7 @@
 import { useContext, useState } from "react"
 import { authContext } from "../../App"
 import styles from './CreatePost.module.css'
-import { addDoc, collection } from 'firebase/firestore'
+import { addDoc, collection, serverTimestamp } from 'firebase/firestore'
 import { db,auth } from "../../firebase-config"
 import { useNavigate } from "react-router-dom"
 
@@ -21,15 +21,12 @@ const CreatePost = () => {
         author:{
           name: auth.currentUser.displayName,
           id: auth.currentUser.uid,
-        }
+        },
+        dateOfcreation: serverTimestamp()
       })
       navigate('/');
     }
-    // const handlePublish =  () => {
-    
-    //   console.log(auth);
-    // }
-
+ 
   return (
     <>{!isAuth ? <p>Log in to create a post!</p> : 
     /* en caso de haber logeado, se muestra la pagina para crear post: */
