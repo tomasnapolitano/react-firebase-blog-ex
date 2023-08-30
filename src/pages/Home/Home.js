@@ -16,7 +16,7 @@ import styles from "./Home.module.css"
     useEffect(() => {
       const getPosts = async() => {
         setLoading(true);
-        const q = query(postCollection, orderBy('dateOfCreation'));
+        const q = query(postCollection, orderBy('dateOfCreation', 'desc'));
         const queryResult = await getDocs(q);
         // setPosts(queryResult);
         console.log(queryResult.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
