@@ -1,6 +1,6 @@
 import styles from './Post.module.css'
 
-import { auth, db } from "../../firebase-config"
+import { auth } from "../../firebase-config"
 import { useContext } from 'react';
 import { authContext } from '../../App';
 

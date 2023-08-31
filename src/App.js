@@ -1,8 +1,7 @@
 import { Outlet, useNavigate } from 'react-router-dom';
 import './App.css';
 import Navbar from './Components/Navbar/Navbar';
-import { createContext, useContext, useState } from 'react';
-import Login from './pages/Login/Login';
+import { createContext, useState } from 'react';
 import { signOut } from "firebase/auth"
 import { auth } from './firebase-config';
 

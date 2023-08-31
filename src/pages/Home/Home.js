@@ -49,7 +49,7 @@ import styles from "./Home.module.css"
       else{
         return(
           // <div className={styles.homeMainContainer}>Loading pija</div>
-          <img src="/loading_gif.gif"/>
+          <img src="/loading_gif.gif" alt="Loading gif"/>
         )
       }
 }
