@@ -12,12 +12,12 @@
     color:#f0f8ff;
     font-size: large;
 
+}
     .navbarLinkContainer{
         display: flex;
         flex-direction: row;
         width: 450px;
     }
-}
 .navbarLink{
     margin:auto;
     width: 30%;
