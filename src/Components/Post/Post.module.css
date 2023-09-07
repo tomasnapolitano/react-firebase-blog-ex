@@ -4,7 +4,8 @@
     min-width: 60%;
     padding: 2%;
     /* margin-right: auto; */
-    margin-top: 1%;    
+    box-shadow: -5px 5px 0px black;
+    margin-top: 3%;    
     font-family: BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     
     .headerContainer{
@@ -29,7 +30,7 @@
         word-wrap: break-word;
         height: auto;
         max-height: 400px;
-        width: 100%;
+        width: auto;
         overflow: hidden;
         overflow-y: auto;
     }
@@ -37,5 +38,24 @@
         font-size: 1rem;
         font-style: italic;
         opacity: 70%;
+    }
+}
+
+@media screen and (min-width:481px) and (max-width:778px){
+    .postMainContainer{
+        .headerContainer{
+            font-size: 2rem;
+        }
+    }
+}
+
+@media screen and (max-width:480px){
+    .postMainContainer{
+        .headerContainer{
+            font-size: 1.5rem;
+        }
+        .bodyContainer{
+            font-size: 1rem;
+        }
     }
 }

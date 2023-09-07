@@ -3,6 +3,17 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 70%;
+    width: 80%;
     padding-bottom: 10px;
+}
+@media screen and (min-width:481px) and (max-width:778px){
+    .homeMainContainer{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:480px){
+    .homeMainContainer{
+        width: 100%;
+    }
 }
