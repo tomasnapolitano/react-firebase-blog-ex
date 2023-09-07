@@ -15,7 +15,7 @@ const Navbar = ({handleSignOut}) => {
         {!isAuth ? 
         <div className={styles.navbarLink}><Link to="/login" style={{textDecoration:'none', color:'#f0f8ff'}}>Login</Link></div>
         : 
-        <div className={styles.navbarLink}><button onClick={handleSignOut}>Sign Out</button></div>
+        <div className={styles.navbarLink}><Link onClick={handleSignOut} style={{textDecoration:'none', color:'#f0f8ff'}}>Sign Out</Link></div>
         }
       </div>
     </div>
