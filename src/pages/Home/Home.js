@@ -19,7 +19,6 @@ import styles from "./Home.module.css"
         const q = query(postCollection, orderBy('dateOfCreation', 'desc'));
         const queryResult = await getDocs(q);
         // setPosts(queryResult);
-        console.log(queryResult.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
         setPosts(queryResult.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
         setLoading(false);
       }

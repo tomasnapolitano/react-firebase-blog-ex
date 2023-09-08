@@ -1,5 +1,5 @@
 .createPostMainContainer{
-    width: 30%;
+    width: 40%;
     min-height: 30%;
     height: auto;
     padding: 20px;
@@ -26,4 +26,16 @@ label{
 }
 textarea{
     min-height: 100px;
+}
+
+@media screen and (min-width:481px) and (max-width:778px){
+    .createPostMainContainer{
+    
+        width: 60%;
+    }
+}
+@media screen and (max-width:480px){
+    .createPostMainContainer{
+        width: 80%;
+    }  
 }
